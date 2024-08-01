@@ -25,7 +25,7 @@ class ProjectStoreRequest extends FormRequest
             "title" => ["required", "string", "unique:projects", "min:4", "max:50"],
             "prog_langs" => ["required"],
             "due_to" => [],
-            "url" => ["url", "min:3", "max:255"],
+            "url" => ["image", "max:3000"],
             "type_id" => ["required", "integer", "exists:types,id"],
             "technologies" => ["required","array", "exists:technologies,id"],
         ];

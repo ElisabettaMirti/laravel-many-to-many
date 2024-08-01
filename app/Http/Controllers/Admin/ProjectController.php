@@ -38,6 +38,8 @@ class ProjectController extends Controller
     public function store(ProjectStoreRequest $request)
     {
         $data = $request->validated();
+        $img_path = Storage::put('uploads/projects', $data["url"]);
+        $data["url"] = $img_path;
         $newProject = Project::create($data);
         $newProject->technologies()->sync($data["technologies"]);
 

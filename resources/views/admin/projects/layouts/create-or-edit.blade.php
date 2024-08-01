@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-8">
             <h2 class="mb-3">@yield('page-title')</h2>
-            <form action="@yield('form-action')" method="POST">
+            <form action="@yield('form-action')" method="POST" enctype="multipart/form-data">
                 @yield('form-method')
                 @csrf
 
@@ -61,8 +61,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="url">Image URL: </label>
-                    <input type="text" name="url" id="url" class="form-control" value="{{ old('url', $project->url)}}">
+                    <label for="url">Image: </label>
+                    <input type="file" name="url" id="url" class="form-control" value="{{ old('url', $project->url)}}">
                 </div>
 
                 <input type="submit" value="@yield('page-title')" class="btn btn-primary me-2">

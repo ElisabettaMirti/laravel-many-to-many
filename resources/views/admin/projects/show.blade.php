@@ -19,7 +19,7 @@
                 @endforelse
             </h3>
             <h4>Due to: {{ $project->due_to }}</h4>
-            <img src="{{ $project->url }}" alt="{{ $project->title }}">
+            <img src="{{ asset('storage/' . $project->url) }}" alt="{{ $project->title }}">
 
         </div>
     </div>
