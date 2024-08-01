@@ -27,7 +27,7 @@ class ProjectStoreRequest extends FormRequest
             "due_to" => [],
             "url" => ["url", "min:3", "max:255"],
             "type_id" => ["required", "integer", "exists:types,id"],
-            "technologies" => ["array", "exists:technologies,id"],
+            "technologies" => ["required","array", "exists:technologies,id"],
         ];
     }
 }

@@ -22,10 +22,12 @@ class ProjectUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "title" => ["required", "string", Rule::unique("projects")->ignore($this->route("project")), "min:4", "max:50"],
+            "title" => ["required", "string", "min:4", "max:255", Rule::unique("projects")->ignore($this->route("project"))],
             "prog_langs" => ["required"],
             "due_to" => [],
             "url" => ["url", "min:3", "max:255"],
+            "type_id" => ["required", "integer", "exists:types,id"],
+            "technologies" => ["required","array", "exists:technologies,id"],
         ];
     }
 }
