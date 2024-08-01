@@ -19,7 +19,12 @@
                 @endforelse
             </h3>
             <h4>Due to: {{ $project->due_to }}</h4>
-            <img src="{{ asset('storage/' . $project->url) }}" alt="{{ $project->title }}">
+            @if ( str_starts_with($project->url, "http"))
+                <img src="{{ $project->url }}" alt="{{ $project->title }}">
+            @else
+                <img src="{{ asset('storage/' . $project->url) }}" alt="{{ $project->title }}">
+            @endif
+
 
         </div>
     </div>
