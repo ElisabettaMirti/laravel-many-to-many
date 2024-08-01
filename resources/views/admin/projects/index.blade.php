@@ -17,6 +17,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Type</th>
                     <th scope="col">Programming Languages</th>
+                    <th scope="col">Technologies</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -28,6 +29,15 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->type->name }}</td>
                         <td>{{ $project->prog_langs }}</td>
+
+                        <td>
+                            @forelse ($project->technologies as $technology )
+                                {{ $technology->name }}
+                            @empty
+                                <p>no techonologies</p>
+                            @endforelse
+                        </td>
+
                         <td>
                             <a href="{{Route('admin.projects.show', $project)}}" class="btn btn-primary btn-sm me-2 ms-2">Show</a>
                             <a href="{{Route('admin.projects.edit', $project)}}" class="btn btn-light btn-sm me-2">Edit</a>
