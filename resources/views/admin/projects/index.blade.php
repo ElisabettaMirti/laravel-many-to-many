@@ -32,7 +32,7 @@
 
                         <td>
                             @forelse ($project->technologies as $technology )
-                                {{ $technology->name }}
+                                <span class="badge rounded-pill" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
                             @empty
                                 <p>no techonologies</p>
                             @endforelse
